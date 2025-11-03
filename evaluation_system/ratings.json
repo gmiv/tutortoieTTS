@@ -1,0 +1,115 @@
+{
+  "ratings": {
+    "emma_ultra_fast_20251103_111705.wav": {
+      "rating": "down",
+      "notes": "",
+      "timestamp": "2025-11-03T15:16:02.383613"
+    },
+    "emma_fast_20251103_111739.wav": {
+      "rating": "up",
+      "notes": "",
+      "timestamp": "2025-11-03T15:18:43.661866"
+    },
+    "emma_standard_20251103_112030.wav": {
+      "rating": "up",
+      "notes": "",
+      "timestamp": "2025-11-03T15:18:52.843439"
+    },
+    "emma_high_quality_20251103_112802.wav": {
+      "rating": "up",
+      "notes": "",
+      "timestamp": "2025-11-03T15:18:58.778203"
+    },
+    "emma_fast_tem06_20251103_113552.wav": {
+      "rating": "down",
+      "notes": "",
+      "timestamp": "2025-11-03T15:19:05.017758"
+    },
+    "emma_fast_tem08_20251103_113840.wav": {
+      "rating": "down",
+      "notes": "a little metalic",
+      "timestamp": "2025-11-03T15:19:16.898459"
+    },
+    "emma_fast_tem10_20251103_114133.wav": {
+      "rating": "up",
+      "notes": "",
+      "timestamp": "2025-11-03T15:19:23.321284"
+    },
+    "emma_fast_rep15_20251103_114427.wav": {
+      "rating": "down",
+      "notes": "skippy",
+      "timestamp": "2025-11-03T15:19:29.132641"
+    },
+    "emma_fast_rep20_20251103_114722.wav": {
+      "rating": "up",
+      "notes": "",
+      "timestamp": "2025-11-03T15:19:35.830212"
+    },
+    "emma_fast_rep25_20251103_115015.wav": {
+      "rating": "up",
+      "notes": "",
+      "timestamp": "2025-11-03T15:19:48.234284"
+    },
+    "emma_fast_top07_20251103_115303.wav": {
+      "rating": "up",
+      "notes": "",
+      "timestamp": "2025-11-03T15:19:54.260613"
+    },
+    "emma_fast_top08_20251103_115558.wav": {
+      "rating": "down",
+      "notes": "",
+      "timestamp": "2025-11-03T15:19:57.744802"
+    },
+    "emma_fast_top09_20251103_115851.wav": {
+      "rating": "down",
+      "notes": "",
+      "timestamp": "2025-11-03T15:20:19.034001"
+    },
+    "emma_standard_dif08_20251103_120154.wav": {
+      "rating": "down",
+      "notes": "",
+      "timestamp": "2025-11-03T15:20:24.299410"
+    },
+    "emma_standard_dif10_20251103_120918.wav": {
+      "rating": "up",
+      "notes": "has intonation",
+      "timestamp": "2025-11-03T15:20:33.584942"
+    },
+    "emma_standard_dif12_20251103_121641.wav": {
+      "rating": "up",
+      "notes": "clean",
+      "timestamp": "2025-11-03T15:20:41.562323"
+    },
+    "emma_standard_con10_20251103_122422.wav": {
+      "rating": "down",
+      "notes": "weird slow down",
+      "timestamp": "2025-11-03T15:20:49.712269"
+    },
+    "emma_standard_con20_20251103_123145.wav": {
+      "rating": "up",
+      "notes": "",
+      "timestamp": "2025-11-03T15:20:56.906947"
+    },
+    "emma_standard_con30_20251103_123915.wav": {
+      "rating": "up",
+      "notes": "",
+      "timestamp": "2025-11-03T15:21:03.796971"
+    },
+    "emma_standard_dif10_rep25_tem07_top09_20251103_124642.wav": {
+      "rating": "down",
+      "notes": "air and slightly metallic",
+      "timestamp": "2025-11-03T15:21:22.816118"
+    },
+    "emma_fast_rep20_tem06_top07_20251103_125412.wav": {
+      "rating": "up",
+      "notes": "",
+      "timestamp": "2025-11-03T15:21:28.934395"
+    }
+  },
+  "metadata": {
+    "created_at": "2025-11-03T15:12:30.695328",
+    "total_files": 21,
+    "rated_count": 21,
+    "updated_at": "2025-11-03T15:21:28.934403"
+  }
+}
