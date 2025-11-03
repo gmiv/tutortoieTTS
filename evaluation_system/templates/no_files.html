@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No Files Found - TTS Evaluation</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 600px;
+            width: 100%;
+            padding: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #666;
+            line-height: 1.6;
+            margin: 20px 0;
+        }
+
+        .instructions {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .instructions h2 {
+            color: #444;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .instructions ol {
+            color: #666;
+            margin-left: 20px;
+        }
+
+        .instructions li {
+            margin: 10px 0;
+        }
+
+        code {
+            background: #e5e7eb;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 14px;
+        }
+
+        .refresh-btn {
+            padding: 12px 30px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .refresh-btn:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📁 No WAV Files Found</h1>
+
+        <p>
+            The evaluation system couldn't find any WAV files to evaluate in the outputs directory.
+        </p>
+
+        <div class="instructions">
+            <h2>How to generate test files:</h2>
+            <ol>
+                <li>
+                    Run the Emma test scaffold:<br>
+                    <code>python tests/scaffolds/test_emma_scaffold.py</code>
+                </li>
+                <li>
+                    Or generate a single file:<br>
+                    <code>python src/tutortoietts/cli/generate.py "Hello world" --preset fast</code>
+                </li>
+                <li>
+                    Make sure files are saved to:<br>
+                    <code>outputs/</code>
+                </li>
+                <li>
+                    Refresh this page once files are generated.
+                </li>
+            </ol>
+        </div>
+
+        <button class="refresh-btn" onclick="window.location.reload()">
+            🔄 Refresh Page
+        </button>
+    </div>
+</body>
+</html>
