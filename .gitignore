@@ -1,0 +1,41 @@
+# Virtual environment
+tortoise-venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Output files
+*.wav
+*.mp3
+*.flac
+outputs/
+test_outputs/
+
+# Model cache
+.cache/
+models/
+
+# Logs
+logs/
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.bak
+*~
