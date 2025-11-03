@@ -18,7 +18,32 @@ os.environ['LD_LIBRARY_PATH'] = '/usr/lib/wsl/lib:' + os.environ.get('LD_LIBRARY
 
 # Test configuration
 TEST_VOICE = 'emma'
-TEST_TEXT = "Hello! This is a comprehensive test of Tortoise TTS with the Emma voice. The system is working perfectly and generating high quality speech."
+
+# ============================================================
+# TEST TEXT OPTIONS - Uncomment the one you want to use
+# ============================================================
+
+# ACTIVE: Phonetically Difficult - Tests consonant clusters, th/th combinations
+TEST_TEXT = "Throughout the thousands of thorough thoughts, she thoroughly questioned whether the weathered leather would withstand further pressure."
+
+# Alternative test texts (uncomment to activate):
+
+# Simple & Casual - Basic test
+# TEST_TEXT = "Hi! I'm emma. What are you up to?"
+
+# Phonetic Variety & Tongue Twisters - Tests rapid articulation
+# TEST_TEXT = "The sixth sick sheik's sixth sheep's sick - Peter Piper picked a peck of pickled peppers!"
+
+# Numbers, Abbreviations & Complex Punctuation - Tests normalization
+# TEST_TEXT = "Dr. Smith's appointment is at 3:45 PM on March 23rd, 2024. Call 555-0123 or email info@example.com - it's urgent!"
+
+# Emotional Range & Natural Speech - Tests prosody and intonation
+# TEST_TEXT = "Wait, what?! I can't believe it's already 2024... Time flies so fast, doesn't it? Well, I suppose we'd better get going then."
+
+# Balanced Challenge - Mix of pronunciation, numbers, and natural speech
+# TEST_TEXT = "Hi! I'm Emma. Did you know that approximately 73% of people struggle with pronunciation? It's fascinating, isn't it? Let's test this thoroughly!"
+
+# ============================================================
 
 # Get the project root directory (two levels up from this file)
 PROJECT_ROOT = Path(__file__).parent.parent.parent
