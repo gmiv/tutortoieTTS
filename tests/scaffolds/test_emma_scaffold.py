@@ -365,11 +365,169 @@ def print_summary(results):
         print(f"  Min: {min(all_pytorch_peaks):.0f} MB")
 
 def save_results_json(results):
-    """Save results to JSON file."""
-    json_path = OUTPUT_DIR / f"test_results_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+    """Save comprehensive results and statistics to JSON file."""
+    timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+    json_path = OUTPUT_DIR / f"test_results_{timestamp}.json"
+
+    # Calculate summary statistics
+    successful = [r for r in results if r['success']]
+    failed = [r for r in results if not r['success']]
+
+    # Statistics by preset
+    preset_stats = {}
+    presets = ['ultra_fast', 'fast', 'standard', 'high_quality']
+    for preset in presets:
+        preset_results = [r for r in successful if r['preset'] == preset]
+        if preset_results:
+            times = [r['elapsed_time'] for r in preset_results]
+            gpu_utils = [r['gpu_after']['gpu_utilization'] for r in preset_results if r.get('gpu_after')]
+            gpu_mems = [r['gpu_after']['memory_used_mb'] for r in preset_results if r.get('gpu_after')]
+            pytorch_peaks = [r['gpu_peak']['pytorch_max_memory_allocated_mb'] for r in preset_results if r.get('gpu_peak')]
+            audio_durations = [r['audio_duration'] for r in preset_results]
+            file_sizes = [r['file_size_kb'] for r in preset_results]
+
+            preset_stats[preset] = {
+                'test_count': len(preset_results),
+                'timing': {
+                    'avg_time': sum(times) / len(times) if times else 0,
+                    'min_time': min(times) if times else 0,
+                    'max_time': max(times) if times else 0,
+                    'total_time': sum(times) if times else 0
+                },
+                'gpu_stats': {
+                    'avg_utilization': sum(gpu_utils)/len(gpu_utils) if gpu_utils else None,
+                    'max_utilization': max(gpu_utils) if gpu_utils else None,
+                    'min_utilization': min(gpu_utils) if gpu_utils else None,
+                    'avg_memory_mb': sum(gpu_mems)/len(gpu_mems) if gpu_mems else None,
+                    'max_memory_mb': max(gpu_mems) if gpu_mems else None,
+                    'min_memory_mb': min(gpu_mems) if gpu_mems else None,
+                    'avg_pytorch_peak_mb': sum(pytorch_peaks)/len(pytorch_peaks) if pytorch_peaks else None,
+                    'max_pytorch_peak_mb': max(pytorch_peaks) if pytorch_peaks else None,
+                    'min_pytorch_peak_mb': min(pytorch_peaks) if pytorch_peaks else None
+                },
+                'output_stats': {
+                    'avg_audio_duration': sum(audio_durations)/len(audio_durations) if audio_durations else 0,
+                    'total_audio_duration': sum(audio_durations) if audio_durations else 0,
+                    'avg_file_size_kb': sum(file_sizes)/len(file_sizes) if file_sizes else 0,
+                    'total_file_size_kb': sum(file_sizes) if file_sizes else 0,
+                    'avg_speed_ratio': sum(audio_durations)/sum(times) if times and sum(times) > 0 else 0
+                }
+            }
+
+    # Overall GPU statistics
+    all_gpu_utils = [r['gpu_after']['gpu_utilization'] for r in successful if r.get('gpu_after')]
+    all_gpu_mems = [r['gpu_after']['memory_used_mb'] for r in successful if r.get('gpu_after')]
+    all_gpu_temps = [r['gpu_after']['temperature'] for r in successful if r.get('gpu_after')]
+    all_gpu_power = [r['gpu_after']['power_draw'] for r in successful if r.get('gpu_after')]
+    all_pytorch_peaks = [r['gpu_peak']['pytorch_max_memory_allocated_mb'] for r in successful if r.get('gpu_peak')]
+    all_pytorch_reserved = [r['gpu_peak']['pytorch_max_memory_reserved_mb'] for r in successful if r.get('gpu_peak')]
+
+    overall_gpu_stats = {
+        'utilization': {
+            'average': sum(all_gpu_utils)/len(all_gpu_utils) if all_gpu_utils else None,
+            'max': max(all_gpu_utils) if all_gpu_utils else None,
+            'min': min(all_gpu_utils) if all_gpu_utils else None
+        },
+        'memory_mb': {
+            'average': sum(all_gpu_mems)/len(all_gpu_mems) if all_gpu_mems else None,
+            'max': max(all_gpu_mems) if all_gpu_mems else None,
+            'min': min(all_gpu_mems) if all_gpu_mems else None
+        },
+        'temperature_c': {
+            'average': sum(all_gpu_temps)/len(all_gpu_temps) if all_gpu_temps else None,
+            'max': max(all_gpu_temps) if all_gpu_temps else None,
+            'min': min(all_gpu_temps) if all_gpu_temps else None
+        },
+        'power_draw_w': {
+            'average': sum(all_gpu_power)/len(all_gpu_power) if all_gpu_power else None,
+            'max': max(all_gpu_power) if all_gpu_power else None,
+            'min': min(all_gpu_power) if all_gpu_power else None
+        },
+        'pytorch_peak_mb': {
+            'average': sum(all_pytorch_peaks)/len(all_pytorch_peaks) if all_pytorch_peaks else None,
+            'max': max(all_pytorch_peaks) if all_pytorch_peaks else None,
+            'min': min(all_pytorch_peaks) if all_pytorch_peaks else None
+        },
+        'pytorch_reserved_mb': {
+            'average': sum(all_pytorch_reserved)/len(all_pytorch_reserved) if all_pytorch_reserved else None,
+            'max': max(all_pytorch_reserved) if all_pytorch_reserved else None,
+            'min': min(all_pytorch_reserved) if all_pytorch_reserved else None
+        }
+    }
+
+    # Overall timing statistics
+    all_times = [r['elapsed_time'] for r in successful]
+    all_audio_durations = [r['audio_duration'] for r in successful]
+    all_file_sizes = [r['file_size_kb'] for r in successful]
+
+    overall_timing_stats = {
+        'total_processing_time': sum(all_times) if all_times else 0,
+        'avg_processing_time': sum(all_times)/len(all_times) if all_times else 0,
+        'total_audio_duration': sum(all_audio_durations) if all_audio_durations else 0,
+        'avg_audio_duration': sum(all_audio_durations)/len(all_audio_durations) if all_audio_durations else 0,
+        'overall_speed_ratio': sum(all_audio_durations)/sum(all_times) if all_times and sum(all_times) > 0 else 0,
+        'total_file_size_kb': sum(all_file_sizes) if all_file_sizes else 0,
+        'avg_file_size_kb': sum(all_file_sizes)/len(all_file_sizes) if all_file_sizes else 0
+    }
+
+    # Get system info
+    system_info = {
+        'pytorch_version': torch.__version__,
+        'cuda_available': torch.cuda.is_available(),
+        'cuda_device': torch.cuda.get_device_name(0) if torch.cuda.is_available() else None,
+        'timestamp': timestamp,
+        'test_date': datetime.now().isoformat()
+    }
+
+    # Get initial GPU info if available
+    gpu_info = get_gpu_stats()
+    if gpu_info:
+        system_info['gpu_info'] = {
+            'name': gpu_info['gpu_name'],
+            'total_memory_mb': gpu_info['memory_total_mb']
+        }
+
+    # Comprehensive results object
+    comprehensive_results = {
+        'metadata': {
+            'test_configuration': {
+                'voice': TEST_VOICE,
+                'test_text': TEST_TEXT,
+                'test_text_length': len(TEST_TEXT),
+                'output_directory': str(OUTPUT_DIR.absolute())
+            },
+            'system_info': system_info,
+            'test_summary': {
+                'total_tests': len(results),
+                'successful_tests': len(successful),
+                'failed_tests': len(failed),
+                'success_rate': len(successful) / len(results) * 100 if results else 0
+            }
+        },
+        'statistics': {
+            'by_preset': preset_stats,
+            'overall_gpu': overall_gpu_stats,
+            'overall_timing': overall_timing_stats
+        },
+        'individual_results': results,
+        'failed_tests': [
+            {
+                'test_name': r['test_name'],
+                'preset': r['preset'],
+                'error': r.get('error', 'Unknown error')
+            } for r in failed
+        ]
+    }
+
+    # Save to JSON with proper formatting
     with open(json_path, 'w') as f:
-        json.dump(results, f, indent=2)
-    print(f"\nResults saved to: {json_path}")
+        json.dump(comprehensive_results, f, indent=2, default=str)
+
+    print(f"\n✓ Comprehensive results saved to: {json_path}")
+    print(f"  - {len(results)} total tests")
+    print(f"  - {len(successful)} successful, {len(failed)} failed")
+    print(f"  - Includes {len(preset_stats)} preset statistics")
+    print(f"  - Full GPU and performance metrics captured")
 
 def main():
     # Check CUDA availability
