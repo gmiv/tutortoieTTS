@@ -19,12 +19,16 @@ SAMPLE_PATH="$2"
 TEXT="$3"
 PRESET="${4:-fast}"
 
+# Get the script directory and project root
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+PROJECT_ROOT="$( cd "$SCRIPT_DIR/.." && pwd )"
+
 # Set environment variables
-export PYTHONPATH="/mnt/c/Users/gmora/Documents/REPO/tutortoieTTS/tortoise-venv/lib/python3.10/site-packages:$PYTHONPATH"
+export PYTHONPATH="$PROJECT_ROOT/tortoise-venv/lib/python3.10/site-packages:$PYTHONPATH"
 export LD_LIBRARY_PATH="/usr/lib/wsl/lib:$LD_LIBRARY_PATH"
 
 # Create output directory if it doesn't exist
-mkdir -p outputs/cloned_voices
+mkdir -p "$PROJECT_ROOT/outputs/cloned_voices"
 
 echo "Starting voice cloning..."
 echo "Voice Name: $VOICE_NAME"
@@ -33,18 +37,18 @@ echo "Preset: $PRESET"
 echo "---"
 
 # Run the cloning script
-python3 src/tutortoietts/cli/clone.py \
+python3 "$PROJECT_ROOT/src/tutortoietts/cli/clone.py" \
     --name "$VOICE_NAME" \
     --samples $SAMPLE_PATH \
     --text "$TEXT" \
     --preset "$PRESET" \
-    --output outputs/cloned_voices
+    --output "$PROJECT_ROOT/outputs/cloned_voices"
 
 # Check if successful
 if [ $? -eq 0 ]; then
     echo "---"
     echo "Voice cloning completed successfully!"
-    echo "Output saved to: outputs/cloned_voices/${VOICE_NAME}_${PRESET}.wav"
+    echo "Output saved to: $PROJECT_ROOT/outputs/cloned_voices/${VOICE_NAME}_${PRESET}.wav"
 else
     echo "Error: Voice cloning failed"
     exit 1
