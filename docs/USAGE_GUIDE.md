@@ -294,3 +294,29 @@ tar -czf tortoise_models_backup.tar.gz ~/.cache/huggingface/
 **Remember**: "Work to your potential, not your quota. Make the most of yourself."
 
 This setup provides production-ready TTS with voice cloning on your RTX A6000!
+
+---
+
+## Appendix: Complete Preset Parameters Reference
+
+For a comprehensive deep dive into all preset parameters, their effects, tuning guides, and examples, see the main [README.md](../README.md#-complete-preset-parameters-reference).
+
+### Quick Reference
+
+**Preset-Specific Parameters:**
+| Preset | `num_autoregressive_samples` | `diffusion_iterations` | `cond_free` |
+|--------|----------------------------:|----------------------:|:-----------:|
+| ultra_fast | 16 | 30 | `False` |
+| fast | 96 | 80 | `True` |
+| standard | 256 | 200 | `True` |
+| high_quality | 256 | 400 | `True` |
+
+**Default Parameters (applied to all presets):**
+- `temperature`: 0.8
+- `length_penalty`: 1.0
+- `repetition_penalty`: 2.0
+- `top_p`: 0.8
+- `cond_free_k`: 2.0
+- `diffusion_temperature`: 1.0
+
+See [README.md](../README.md) for detailed explanations of each parameter, tuning recommendations, and examples.

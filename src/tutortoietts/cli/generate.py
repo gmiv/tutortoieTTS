@@ -75,6 +75,16 @@ def generate_speech(text, output_file='output.wav', preset='fast', voice='random
     # Initialize TTS
     print("\n🚀 Initializing Tortoise-TTS...")
     tts = TextToSpeech()
+    
+    # Print model information
+    if hasattr(tts, 'models_dir'):
+        print(f"📁 Models directory: {tts.models_dir}")
+    if hasattr(tts, 'autoregressive') and hasattr(tts.autoregressive, 'model_name'):
+        print(f"🤖 Autoregressive model: {tts.autoregressive.model_name}")
+    if hasattr(tts, 'diffusion') and hasattr(tts.diffusion, 'model_name'):
+        print(f"🌊 Diffusion model: {tts.diffusion.model_name}")
+    if hasattr(tts, 'vocoder') and hasattr(tts.vocoder, 'model_name'):
+        print(f"🔊 Vocoder model: {tts.vocoder.model_name}")
 
     # Split text into chunks to avoid token limit
     chunks = split_text_into_chunks(text, max_chars=350)

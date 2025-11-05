@@ -1117,6 +1117,240 @@
             </div>
         </div>
 
+        <!-- Base Preset Comparison Section -->
+        <div class="findings-section" style="background: linear-gradient(145deg, #0f3460, #16213e); border: 2px solid #00d4ff; position: relative;">
+            <h2 class="section-title">🎚️ Base Preset Quality Comparison</h2>
+            <div style="text-align: center; margin-bottom: 30px;">
+                <p style="color: var(--text-secondary); font-size: 1.2em;">Listen to all four quality presets with default parameters</p>
+                <p style="color: #ffa500; font-size: 0.95em; margin-top: 10px;">Same test text across all presets for direct comparison</p>
+            </div>
+
+            <!-- File Placement Note -->
+            <div style="background: rgba(0, 212, 255, 0.1); border: 1px solid rgba(0, 212, 255, 0.3); border-radius: 10px; padding: 15px; margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto;">
+                <p style="color: #00d4ff; font-weight: bold; margin-bottom: 10px;">📁 Required Audio Files:</p>
+                <ul style="list-style: none; padding-left: 20px; font-size: 0.9em; color: var(--text-secondary);">
+                    <li>⚡ <code style="background: rgba(0,0,0,0.3); padding: 2px 6px; border-radius: 3px;">emma_ultra_fast_20251103_111705.wav</code></li>
+                    <li>🏃 <code style="background: rgba(0,0,0,0.3); padding: 2px 6px; border-radius: 3px;">emma_fast_20251103_111739.wav</code></li>
+                    <li>⚙️ <code style="background: rgba(0,0,0,0.3); padding: 2px 6px; border-radius: 3px;">emma_standard_20251103_112030.wav</code></li>
+                    <li>💎 <code style="background: rgba(0,0,0,0.3); padding: 2px 6px; border-radius: 3px;">emma_high_quality_20251103_112802.wav</code></li>
+                </ul>
+            </div>
+
+            <!-- Preset Audio Grid -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 30px;">
+                
+                <!-- Ultra Fast Preset -->
+                <div style="background: linear-gradient(145deg, rgba(233, 69, 96, 0.15), rgba(233, 69, 96, 0.05)); border: 2px solid #e94560; border-radius: 20px; padding: 25px; position: relative; transition: all 0.3s ease;" 
+                     onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(233, 69, 96, 0.3)'" 
+                     onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+                        <h4 style="color: #e94560; font-size: 1.3em; margin: 0;">⚡ Ultra Fast</h4>
+                        <span style="background: rgba(233, 69, 96, 0.2); color: #e94560; padding: 5px 10px; border-radius: 20px; font-size: 0.9em; font-weight: bold;">0% Approval</span>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; font-size: 0.9em;">
+                            <div>
+                                <span style="color: var(--text-secondary);">Processing:</span>
+                                <span style="color: #00d4ff; font-weight: bold; display: block;">33.7s</span>
+                            </div>
+                            <div>
+                                <span style="color: var(--text-secondary);">Speed Ratio:</span>
+                                <span style="color: #00d4ff; font-weight: bold; display: block;">0.209x</span>
+                            </div>
+                            <div>
+                                <span style="color: var(--text-secondary);">File Size:</span>
+                                <span style="color: var(--text); display: block;">661 KB</span>
+                            </div>
+                            <div>
+                                <span style="color: var(--text-secondary);">Duration:</span>
+                                <span style="color: var(--text); display: block;">7.05s</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: rgba(0,0,0,0.3); border-radius: 10px; padding: 15px;">
+                        <audio controls style="width: 100%;" preload="none">
+                            <source src="emma_ultra_fast_20251103_111705.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    
+                    <div style="margin-top: 15px; padding: 10px; background: rgba(233, 69, 96, 0.1); border-radius: 8px;">
+                        <p style="color: #e94560; font-size: 0.85em; margin: 0;">
+                            <strong>Quality:</strong> Poor consonant clarity, artifacts present. Not recommended for production.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Fast Preset -->
+                <div style="background: linear-gradient(145deg, rgba(255, 165, 0, 0.15), rgba(255, 165, 0, 0.05)); border: 2px solid #ffa500; border-radius: 20px; padding: 25px; position: relative; transition: all 0.3s ease;"
+                     onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(255, 165, 0, 0.3)'" 
+                     onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+                        <h4 style="color: #ffa500; font-size: 1.3em; margin: 0;">🏃 Fast</h4>
+                        <span style="background: rgba(255, 165, 0, 0.2); color: #ffa500; padding: 5px 10px; border-radius: 20px; font-size: 0.9em; font-weight: bold;">55% Approval</span>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; font-size: 0.9em;">
+                            <div>
+                                <span style="color: var(--text-secondary);">Processing:</span>
+                                <span style="color: #38ef7d; font-weight: bold; display: block;">171.4s</span>
+                            </div>
+                            <div>
+                                <span style="color: var(--text-secondary);">Speed Ratio:</span>
+                                <span style="color: #38ef7d; font-weight: bold; display: block;">0.041x</span>
+                            </div>
+                            <div>
+                                <span style="color: var(--text-secondary);">File Size:</span>
+                                <span style="color: var(--text); display: block;">661 KB</span>
+                            </div>
+                            <div>
+                                <span style="color: var(--text-secondary);">Duration:</span>
+                                <span style="color: var(--text); display: block;">7.05s</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: rgba(0,0,0,0.3); border-radius: 10px; padding: 15px;">
+                        <audio controls style="width: 100%;" preload="none">
+                            <source src="emma_fast_20251103_111739.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    
+                    <div style="margin-top: 15px; padding: 10px; background: rgba(255, 165, 0, 0.1); border-radius: 8px;">
+                        <p style="color: #ffa500; font-size: 0.85em; margin: 0;">
+                            <strong>Quality:</strong> Good balance of speed and quality. Suitable for drafts and previews.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Standard Preset -->
+                <div style="background: linear-gradient(145deg, rgba(56, 239, 125, 0.15), rgba(56, 239, 125, 0.05)); border: 2px solid #38ef7d; border-radius: 20px; padding: 25px; position: relative; transition: all 0.3s ease;"
+                     onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(56, 239, 125, 0.3)'" 
+                     onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+                        <h4 style="color: #38ef7d; font-size: 1.3em; margin: 0;">⚙️ Standard</h4>
+                        <span style="background: rgba(56, 239, 125, 0.2); color: #38ef7d; padding: 5px 10px; border-radius: 20px; font-size: 0.9em; font-weight: bold;">63% Approval</span>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; font-size: 0.9em;">
+                            <div>
+                                <span style="color: var(--text-secondary);">Processing:</span>
+                                <span style="color: #ffa500; font-weight: bold; display: block;">451.9s</span>
+                            </div>
+                            <div>
+                                <span style="color: var(--text-secondary);">Speed Ratio:</span>
+                                <span style="color: #ffa500; font-weight: bold; display: block;">0.015x</span>
+                            </div>
+                            <div>
+                                <span style="color: var(--text-secondary);">File Size:</span>
+                                <span style="color: var(--text); display: block;">653 KB</span>
+                            </div>
+                            <div>
+                                <span style="color: var(--text-secondary);">Duration:</span>
+                                <span style="color: var(--text); display: block;">6.97s</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: rgba(0,0,0,0.3); border-radius: 10px; padding: 15px;">
+                        <audio controls style="width: 100%;" preload="none">
+                            <source src="emma_standard_20251103_112030.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    
+                    <div style="margin-top: 15px; padding: 10px; background: rgba(56, 239, 125, 0.1); border-radius: 8px;">
+                        <p style="color: #38ef7d; font-size: 0.85em; margin: 0;">
+                            <strong>Quality:</strong> Production-ready quality. Good prosody and clear articulation.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- High Quality Preset -->
+                <div style="background: linear-gradient(145deg, rgba(0, 212, 255, 0.15), rgba(0, 212, 255, 0.05)); border: 2px solid #00d4ff; border-radius: 20px; padding: 25px; position: relative; transition: all 0.3s ease;"
+                     onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(0, 212, 255, 0.3)'" 
+                     onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+                        <h4 style="color: #00d4ff; font-size: 1.3em; margin: 0;">💎 High Quality</h4>
+                        <span style="background: rgba(0, 212, 255, 0.2); color: #00d4ff; padding: 5px 10px; border-radius: 20px; font-size: 0.9em; font-weight: bold;">100% Approval</span>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; font-size: 0.9em;">
+                            <div>
+                                <span style="color: var(--text-secondary);">Processing:</span>
+                                <span style="color: #e94560; font-weight: bold; display: block;">469.9s</span>
+                            </div>
+                            <div>
+                                <span style="color: var(--text-secondary);">Speed Ratio:</span>
+                                <span style="color: #e94560; font-weight: bold; display: block;">0.013x</span>
+                            </div>
+                            <div>
+                                <span style="color: var(--text-secondary);">File Size:</span>
+                                <span style="color: var(--text); display: block;">561 KB</span>
+                            </div>
+                            <div>
+                                <span style="color: var(--text-secondary);">Duration:</span>
+                                <span style="color: var(--text); display: block;">5.98s</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: rgba(0,0,0,0.3); border-radius: 10px; padding: 15px;">
+                        <audio controls style="width: 100%;" preload="none">
+                            <source src="emma_high_quality_20251103_112802.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    
+                    <div style="margin-top: 15px; padding: 10px; background: rgba(0, 212, 255, 0.1); border-radius: 8px;">
+                        <p style="color: #00d4ff; font-size: 0.85em; margin: 0;">
+                            <strong>Quality:</strong> Maximum quality output. Excellent for final production and premium content.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Preset Comparison Summary -->
+            <div style="background: rgba(255,255,255,0.05); border-radius: 15px; padding: 25px; margin-top: 30px;">
+                <h3 style="color: var(--success); margin-bottom: 20px; text-align: center;">📊 Preset Performance Summary</h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 3em; margin-bottom: 10px;">⚡→💎</div>
+                        <div style="color: var(--text); font-weight: bold; margin-bottom: 5px;">Quality Progression</div>
+                        <div style="color: var(--text-secondary); font-size: 0.9em;">14x processing time increase<br>from Ultra Fast to High Quality</div>
+                    </div>
+                    
+                    <div style="text-align: center;">
+                        <div style="font-size: 3em; margin-bottom: 10px;">🎯</div>
+                        <div style="color: var(--text); font-weight: bold; margin-bottom: 5px;">Optimal Choice</div>
+                        <div style="color: var(--text-secondary); font-size: 0.9em;">Standard preset offers best<br>quality-to-time ratio (63% approval)</div>
+                    </div>
+                    
+                    <div style="text-align: center;">
+                        <div style="font-size: 3em; margin-bottom: 10px;">⏱️</div>
+                        <div style="color: var(--text); font-weight: bold; margin-bottom: 5px;">Time Investment</div>
+                        <div style="color: var(--text-secondary); font-size: 0.9em;">33.7s → 171.4s → 451.9s → 469.9s<br>Choose based on use case</div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 25px; padding: 20px; background: linear-gradient(90deg, rgba(102, 126, 234, 0.1), rgba(0, 212, 255, 0.1)); border-radius: 10px; border-left: 4px solid #667eea;">
+                    <p style="color: var(--text); margin: 0; line-height: 1.6;">
+                        <strong style="color: #667eea;">💡 Recommendation:</strong> Use <span style="color: #ffa500; font-weight: bold;">Fast</span> for iterative development and testing, 
+                        <span style="color: #38ef7d; font-weight: bold;">Standard</span> for production content, and 
+                        <span style="color: #00d4ff; font-weight: bold;">High Quality</span> for premium deliverables. 
+                        Avoid <span style="color: #e94560; font-weight: bold;">Ultra Fast</span> entirely due to unacceptable quality.
+                    </p>
+                </div>
+            </div>
+        </div>
+
         <!-- Parameter Test Results Table with Quality Ratings -->
         <div class="parameters-table">
             <h2 class="section-title">🔧 Parameter Testing Results</h2>

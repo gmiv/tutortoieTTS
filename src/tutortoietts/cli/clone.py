@@ -79,11 +79,22 @@ def main():
     # Verify sample files exist
     sample_paths = []
     for pattern in args.samples:
-        files = list(Path('.').glob(pattern))
-        if not files:
-            print(f"❌ No files found matching: {pattern}")
-            return
-        sample_paths.extend([str(f) for f in files])
+        # Check if it's an absolute path or contains glob characters
+        if Path(pattern).is_absolute() and '*' not in pattern:
+            # Direct file path
+            if Path(pattern).exists():
+                sample_paths.append(pattern)
+            else:
+                print(f"❌ File not found: {pattern}")
+                return
+        else:
+            # Glob pattern
+            from glob import glob
+            files = glob(pattern)
+            if not files:
+                print(f"❌ No files found matching: {pattern}")
+                return
+            sample_paths.extend(files)
 
     if not sample_paths:
         print("❌ No valid audio samples found")
